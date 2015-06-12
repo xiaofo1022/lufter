@@ -11,6 +11,7 @@
 <link href="css/lufter.css" rel="stylesheet"/>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/nav.js"></script>
 <body>
 	<div class="blog-masthead">
 		<div class="container">
@@ -86,14 +87,14 @@
 						<p style="font-size:12px;">2015-6-12 10:52:43 Check In</p>
 					</div>
 				</div>
-				<div class="order-link whover"><p>拍摄中</p><span>5</span></div>
-				<div class="order-link whover"><p>上传原片</p><span>2</span></div>
-				<div class="order-link whover"><p>等待客户选片</p><span>0</span></div>
-				<div class="order-link whover"><p>导图</p><span>2</span></div>
-				<div class="order-link whover"><p>修皮肤及褶皱</p><span>32</span></div>
-				<div class="order-link whover"><p>修背景</p><span>12</span></div>
-				<div class="order-link whover"><p>裁图液化</p><span>377</span></div>
-				<div class="order-link whover"><p>等待审核</p><span>223</span></div>
+				<div class="order-link whover" onclick="toOrderShooting()"><p>拍摄中</p><span>5</span></div>
+				<div class="order-link whover" onclick="toOrderUploadOriginal()"><p>上传原片</p><span>2</span></div>
+				<div class="order-link whover" onclick="toOrderClientChosen()"><p>等待客户选片</p><span>0</span></div>
+				<div class="order-link whover" onclick="toOrderConvertImage()"><p>导图</p><span>2</span></div>
+				<div class="order-link whover" onclick="toOrderFixSkin()"><p>修皮肤及褶皱</p><span>32</span></div>
+				<div class="order-link whover" onclick="toOrderFixBackground()"><p>修背景</p><span>12</span></div>
+				<div class="order-link whover" onclick="toOrderCutLiquify()"><p>裁图液化</p><span>377</span></div>
+				<div class="order-link whover" onclick="toOrderVerify()"><p>等待审核</p><span>223</span></div>
 			</div>
 		</div>
 		

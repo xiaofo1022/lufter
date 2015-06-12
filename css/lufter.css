@@ -114,6 +114,10 @@
 	margin-left: 10px;
 }
 
+.ml0 {
+	margin-left: 0;
+}
+
 .hidden {
 	display:none;
 }
@@ -155,7 +159,9 @@
 }
 
 .order-link {
+	position: relative;
 	padding: 7px;
+	padding-left: 20px;
 	border-top: 1px solid #FFF;
 	border-bottom: 1px solid #E3E3E5;
 	height: 40px;
@@ -165,6 +171,13 @@
 .order-link  p {
 	float: left;
 	width: 180px;
+}
+
+.order-link-nav {
+	position: absolute;
+	font-size: 6px;
+	left: 4px;
+	top: 11px;
 }
 
 .order-link  span {
@@ -246,7 +259,6 @@
 	box-shadow: 1px 1px 3px rgba(209, 209, 210, 1.0);
 	color:#FFF;
 	margin:5px;
-	font-size:18px;
 	font-weight:bold;
 }
 
@@ -318,10 +330,9 @@
 	padding-bottom:5px;
 }
 
-.btn-fix-goods {
+.btn-data-info {
 	height:41px;
 	margin-top:5px;
-	background-color:#1AB2E8;
 }
 
 .pic-block {
