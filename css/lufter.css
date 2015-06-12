@@ -344,3 +344,19 @@
 .pic-block img {
 	width:125px;
 }
+
+.pic-client-block {
+	margin-top:10px;
+	margin-right:10px;
+	float:left;
+}
+
+.pic-client-block img {
+	width:212px;
+}
+
+.select-order-status {
+	width:140px;
+	display:inline;
+	margin-left:5px;
+}
