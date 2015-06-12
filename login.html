@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="xiaofo">
+<title>Orange 9</title>
+<link href="css/bootstrap.lufter.css" rel="stylesheet"/>
+<link href="css/lufter.css" rel="stylesheet"/>
+<link href="css/login.css" rel="stylesheet"/>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<body class="login-body">
+	<div class="login-console">
+		<p class="login-header">ORANGE 9 SYSTEM</p>
+		<form id="loginForm" modelAttribute="login" method="post">
+			<div class="form-group">
+				<input type="text" class="form-control login-input" id="i-name" name="username" placeholder="账号"/>
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control login-input" id="i-password" name="password" placeholder="密码">
+			</div>
+			<div class="form-group">
+				<button id="btnLogin" type="button" class="btn btn-info login-btn" onclick="login()">登录</button>
+			</div>
+		</form>
+	</div>
+	<script>
+		function login() {
+			location.assign("main.html");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="xiaofo">
+<title>Orange 9</title>
+<link href="css/bootstrap.lufter.css" rel="stylesheet"/>
+<link href="css/lufter.css" rel="stylesheet"/>
+<link href="css/summary.css" rel="stylesheet"/>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<body>
+	<div class="blog-masthead">
+		<div class="container">
+			<nav class="blog-nav">
+				<span class="logo">ORANGE9</span>
+				<a class="blog-nav-item active" href="#">订单一览</a>
+				<a class="blog-nav-item" href="clientmanage.html">客户管理</a>
+				<a class="blog-nav-item" href="goodsmanage.html">货品管理</a>
+				<a class="blog-nav-item" href="employeemanage.html">员工管理</a>
+				<a class="blog-nav-item" href="#">账号</a>
+				<a class="blog-nav-item" href="#">退出</a>
+			</nav>
+		</div>
+	</div>
+
+	<div class="container">
+	<div class="row">
+	
+		<div class="col-sm-8 blog-main">
+			<div class="order-summary-block">
+				<div class="summary-label clearfix">
+					<button class="btn btn-default btn-sm fleft"><span class="glyphicon glyphicon-chevron-left"></span></button>
+					<div id="month-title" class="fleft summary-title">2015 / 6</div>
+					<button class="btn btn-default btn-sm fleft"><span class="glyphicon glyphicon-chevron-right"></span></button>
+					<button class="btn btn-default btn-sm fleft" style="margin-left:5px;" data-toggle="modal" data-target="#addOrder"><span class="glyphicon glyphicon-plus"></span></button>
+				</div>
+				<div class="order-date-row clearfix">
+					<div class="order-date-header ghover">日</div>
+					<div class="order-date-header ghover">一</div>
+					<div class="order-date-header ghover">二</div>
+					<div class="order-date-header ghover">三</div>
+					<div class="order-date-header ghover">四</div>
+					<div class="order-date-header ghover">五</div>
+					<div class="order-date-header ghover">六</div>
+				</div>
+				<div id="date-row-1" class="order-date-row clearfix"></div>
+				<div id="date-row-2" class="order-date-row clearfix"></div>
+				<div id="date-row-3" class="order-date-row clearfix"></div>
+				<div id="date-row-4" class="order-date-row clearfix"></div>
+				<div id="date-row-5" class="order-date-row clearfix"></div>
+				<div id="date-row-6" class="order-date-row clearfix"></div>
+			</div>
+		</div>
+
+		<div class="col-sm-3 col-sm-offset-1">
+			<div class="sidebar-module clearfix">
+				<div class="clearfix">
+					<div class="self-header-info fleft">
+						<img src="images/boss.png"/>
+					</div>
+					<div class="self-info fleft">
+						<p style="font-weight:bold;">柳海飞</p>
+						<p style="font-size:12px;">2015-6-12 10:52:43 Check In</p>
+					</div>
+				</div>
+				<div class="order-link whover"><p>拍摄中</p><span>5</span></div>
+				<div class="order-link whover"><p>上传原片</p><span>2</span></div>
+				<div class="order-link whover"><p>等待客户选片</p><span>0</span></div>
+				<div class="order-link whover"><p>导图</p><span>2</span></div>
+				<div class="order-link whover"><p>修皮肤及褶皱</p><span>32</span></div>
+				<div class="order-link whover"><p>修背景</p><span>12</span></div>
+				<div class="order-link whover"><p>裁图液化</p><span>377</span></div>
+				<div class="order-link whover"><p>等待审核</p><span>223</span></div>
+			</div>
+		</div>
+		
+	</div>
+	</div>
+
+	<div id="addOrder" class="modal fade text-left" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header orange-model-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">添加订单</h4>
+				</div>
+				<div class="modal-body">
+					<form id="addOrderForm" class="form-horizontal" modelAttribute="order">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">拍摄日期</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" name="shootDate" id="shootDate"/>
+							</div>
+							<div class="col-sm-3">
+								<select id="shootHalf" name="shootHalf" class="form-control">
+									<option value="AM">上午</option>
+									<option value="PM">下午</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">客户</label>
+							<div class="col-sm-4">
+								<select id="clientId" name="clientId" class="form-control"></select>
+							</div>
+							<div class="col-sm-2">
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addClient">添加</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">模特</label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<input type="text" maxlength="10" id="modelName" name="modelName" class="form-control"/>
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">搭配师</label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<input type="text" maxlength="10" id="stylistName" name="stylistName" class="form-control"/>
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">化妆师</label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<input type="text" maxlength="10" id="dresserName" name="dresserName" class="form-control"/>
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">经纪人</label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<input type="text" maxlength="10" id="brokerName" name="brokerName" class="form-control"/>
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">联系方式</label>
+							<div class="col-sm-4">
+								<div class="input-group">
+									<input type="text" maxlength="11" id="brokerPhone" name="brokerPhone" class="form-control"/>
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+										<ul class="dropdown-menu" role="menu">
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">摄影师</label>
+							<div class="col-sm-4">
+								<select id="photographerId" name="photographerId" class="form-control"></select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">助理</label>
+							<div class="col-sm-4">
+								<select id="assistantId" name="assistantId" class="form-control"></select>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button id="btnAddOrder" type="button" class="btn btn-primary">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Add Client Modal -->
+	<div id="addClient" class="modal fade text-left" style="z-index:1999;" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header orange-model-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">添加客户信息</h4>
+				</div>
+				<div class="modal-body">
+					<form id="addClientForm" modelAttribute="client" class="form-horizontal" method="post">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">名称</label>
+							<div class="col-sm-4">
+								<input type="text" maxlength="50" class="form-control" name="clientName" id="clientName"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">电话</label>
+							<div class="col-sm-4">
+								<input type="text" maxlength="11" id="clientPhone" name="clientPhone" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">邮箱</label>
+							<div class="col-sm-4">
+								<input type="text" maxlength="50" id="clientEmail" name="clientEmail" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">店铺名称</label>
+							<div class="col-sm-4">
+								<input type="text" maxlength="50" id="clientShopName" name="clientShopName" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">店铺链接</label>
+							<div class="col-sm-4">
+								<input type="text" maxlength="50" id="clientShopLink" name="clientShopLink" class="form-control"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">备注</label>
+							<div class="col-sm-6">
+								<textarea id="clientRemark" maxlength="1000" name="clientRemark" class="form-control"></textarea>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button id="btnAddClient" type="button" class="btn btn-primary">确定</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="js/util/date-util.js"></script>
+	<script>
+		var now = new Date();
+		var selectedQueryDate = new Date(now.getFullYear(), now.getMonth(), 1, 0, 0, 0);
+		
+		createDateRect();
+	
+		function createDateRect() {
+			var startDate = new Date(selectedQueryDate.getFullYear(), selectedQueryDate.getMonth(), 1);
+			var rowIndex = 1;
+			var startDay = 1;
+			var lastDay = DateUtil.getLastDayOfMonth(startDate.getFullYear(), startDate.getMonth() + 1);
+			for (var i = 0; i < 6; i++) {
+				var rowBlock = $("#date-row-" + (i + 1));
+				rowBlock.html("");
+				var rowHtml = "";
+				for (var j = 0; j < 7; j++) {
+					startDate.setDate(startDay);
+					var weekDay = startDate.getDay();
+					if (weekDay == j && startDay <= lastDay) {
+						startDay++;
+						var dt = startDate.getDate();
+						var line = '';
+						if (dt == 1) {
+							line += getInfoBlock("<a href='orderdetail.html' target='_blank'>AM O900001</a><br/>[等待客户选片]");
+							line += getInfoBlock("<a>AM O900002</a><br/>[拍摄中]");
+						}
+						rowHtml += getDateBlockOuter(dt, line);
+					} else {
+						rowHtml += ('<div class="order-date-block ghover"></div>');
+					}
+				}
+				rowBlock.html(rowHtml);
+				rowIndex++;
+			}
+		}
+		
+		function getInfoBlock(info) {
+			return '<div class="order-info-block">' + info + '</div>';
+		}
+		
+		function getDateBlockOuter(id, info) {
+			var header = '<div id="order-date-' + id + '" class="order-date-block relative-pos">';
+			if (info == "") {
+				header = '<div id="order-date-' + id + '" class="order-date-block relative-pos ghover">';
+			}
+			return header + info + '<div class="order-date-pos">' + id + '</div></div>';
+		}
+	</script>
+</body>
+</html>
